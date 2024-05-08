@@ -217,6 +217,7 @@ export default {
       let data = await this.handleSubmitData()
       let id = _ts.idPortfolio;
       let title = id ? '更新' : '添加';
+      data.headImgType = 1
       _ts.$axios[id ? '$put' : '$post']('/api/portfolio/post', data).then(function (res) {
         if (res && res.message) {
           _ts.$message.error(res.message);
@@ -238,6 +239,7 @@ export default {
       let _ts = this
       let data = await this.handleSubmitData()
       let id = _ts.idPortfolio;
+      data.headImgType = 1
 
       this.$refs.cropper.getCropData(img => {
         data.headImgUrl = img
